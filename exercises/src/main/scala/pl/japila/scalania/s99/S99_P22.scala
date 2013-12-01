@@ -3,17 +3,12 @@ package pl.japila.scalania.s99
 object S99_P22 {
 
   val solutions = Seq[(Int, Int) => Seq[Int]](
-    range,
     range_7680926,
     range_mprowaznik,
     range_tboloo,
     range_ajozwik,
     range_7681054
   )
-
-  def range = (from: Int, to: Int) => (from, to) match {
-    case (from, to) if from != to => Seq(from) ++ range(from + 1, to)
-    case _ => Nil
 
   def range_7680926: (Int, Int) => Seq[Int] = (from, to) => {
     if (to < from) {
@@ -30,7 +25,7 @@ object S99_P22 {
 
   def range_tboloo: (Int, Int) => Seq[Int] = (from, to) =>
     (from, to) match {
-      case (from, to) if from != to => Seq(from) ++ range_tboloo(from + 1, to)
+      case (from, to) if from <= to => Seq(from) ++ range_tboloo(from + 1, to)
       case _ => Nil
     }
 
