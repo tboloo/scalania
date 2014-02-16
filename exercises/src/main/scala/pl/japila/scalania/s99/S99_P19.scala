@@ -7,6 +7,5 @@ object S99_P19 {
     } else {
       (ts drop ts.size + n) ++ (ts take ts.size + n)
     }
-
   }
 }
